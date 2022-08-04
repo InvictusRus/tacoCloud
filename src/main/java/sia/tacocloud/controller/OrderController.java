@@ -1,4 +1,4 @@
-package sia.tacocloud;
+package sia.tacocloud.controller;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import sia.tacocloud.domain.TacoOrder;
 
 @Slf4j
 @Controller
@@ -26,6 +27,7 @@ public class OrderController {
     public String processOrder(@Valid TacoOrder order, Errors errors, SessionStatus sessionStatus) {
 
         if (errors.hasErrors()) {
+            log.info("Design Validation Error");
             return "orderForm";
         }
 
