@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
@@ -52,6 +53,9 @@ public class TacoOrder implements Serializable {
   private List<Taco> tacos = new ArrayList<>();
 
   private Date placedAt;
+
+  @ManyToOne
+  private User user;
 
   public void addTaco(Taco taco) {
     this.tacos.add(taco);
